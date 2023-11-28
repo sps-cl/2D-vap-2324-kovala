@@ -29,5 +29,97 @@
         <li>Listopad</li>
     </ul>
 
+        
+
+          <form action="data.html" method="get">
+            <table>
+                <thead>
+                        <th colspan="2">Registrace</th>
+                </thead>
+        
+              <tbody>
+                <tr>
+                    <td>
+                        <label for="jmeno">Jméno: </label>
+                    </td>
+                    <td>  
+                        <input id="jmeno" type="text" name="Jmeno" required>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <label for="heslo">Heslo: </label>
+                    </td>
+    
+                    <td>
+                        <input id="heslo" type="password" name="Heslo" required>
+                    </td>
+    
+                </tr>
+    
+                <tr>
+                    <td>
+                        <label for="vek">Věk: </label>
+                    </td>
+    
+                    <td>
+                        <input id="vek" type="number" name="Věk" required min="0" max="150">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="email">Email: </label>
+                    </td>
+                    
+                    <td>  
+                        <input id="email" type="text" name="Email" required>
+                    </td>
+                    
+                </tr>
+    
+                <tr>
+                    <td>
+                        <label for="student">Student: </label>
+                    </td>
+    
+                    <td>
+                        <input id="student" type="checkbox" name="Student">
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <label for="pohlavi">Pohlaví: </label>
+                    </td>
+    
+                    <td>
+                        <div id="pohlavi">
+                            <label for="muz">Muž</label>
+                            <input id="muz" type="radio" name="Pohlaví" required value="muz">
+                            <label for="zena">Žena</label>
+                            <input id="zena" type="radio" name="Pohlaví" required value="zena">    
+                        </div>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <label for="vzdelani">Vzdělání</label>
+                    </td>
+    
+                    <td>
+                        <select name="Vzdelani" id="vzdelani">
+                            <option value="ZS">Základní škola</option>
+                            <option value="SS">Střední škola</option>
+                            <option value="VS">Vysoká škola</option>
+                        </select>
+                    </td>
+                </tr>
+              </tbody>
+              </table>
+        <input type="submit" value="Zaregistrovat">
+      </form>
 </body>
 </html>
