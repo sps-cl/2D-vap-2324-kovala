@@ -1,0 +1,98 @@
+.inline-div{
+  display: inline;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  text-align: center;
+  font-size: 2;
+  color: gray;
+  background-color: black;
+  transition: background-color 3s;
+  animation: expand-contract 2s linear infinite alternate;
+}
+
+.inline-div:hover{
+    background-color: purple;
+}
+
+.inline-container{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.inline-block-div{
+    display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  text-align: center;
+  font-size: 2;
+  color: gray;
+  background-color: red;
+  transition: background-color 3s;
+  animation: identifier 2s linear infinite alternate;
+}
+
+@keyframes identifier {
+    0%, 100%{width: 100px;}
+    50%{width: 200px;}
+}
+
+.inline-block-div:hover{
+    background-color: purple;
+}
+
+.inline-block-container{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.block-div{
+    display: block;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  text-align: center;
+  font-size: 2;
+  color: gray;
+  background-color: green;
+  transition: background-color 3s;
+  animation: identifier 2s linear infinite alternate;
+}
+
+.block-div:hover{
+    background-color: purple;
+}
+
+.block-container{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.flex-div{
+    display: block;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  text-align: center;
+  font-size: 2;
+  color: gray;
+  background-color: blue;
+  transition: background-color 3s;
+  animation: identifier 2s linear infinite alternate;
+}
+
+.flex-div:hover{
+    background-color: purple;
+}
+
+.flex-container{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    display: flex;
+    justify-content: space-evenly;
+}
