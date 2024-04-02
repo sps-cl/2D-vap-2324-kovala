@@ -10,60 +10,49 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Zadej sekvenci čísel.");
-            string input = Console.ReadLine();
-            string[] cislaString = input.Split(',');
-            int minCislo = int.MaxValue;
-            int maxCislo = int.MinValue;
-            int aktualniInterval = 1;
-            int maxInterval = 1;
-            int predesleCislo = int.MinValue;
-
-            foreach (string cisloString in cislaString)
+            while (true)
             {
-                if (int.TryParse(cisloString, out int cislo))
+                Console.WriteLine("Zadej sekvenci čísel oddělených čárkou:");
+                string input = Console.ReadLine();
+
+                try
                 {
-                    if (cislo < minCislo)
-                    {
-                        minCislo = cislo;
-                    }
+                    int[] cisla = input.Split(',').Select(int.Parse).ToArray();
 
-                    if (cislo > maxCislo)
-                    {
-                        maxCislo = cislo;
-                    }
+                    int min = cisla.Min();
+                    int max = cisla.Max();
+                    int maxDelkaIntervalu = GetMaxIncreasingSequenceLength(cisla);
 
-                    if (predesleCislo < cislo)
-                    {
-                        aktualniInterval++;
-                    }
-                    else
-                    {
-                        if (aktualniInterval > maxInterval)
-                        {
-                            maxInterval = aktualniInterval;
-                        }
+                    Console.WriteLine($"Nejmenší číslo je {min}.");
+                    Console.WriteLine($"Největší číslo je {max}.");
+                    Console.WriteLine($"Délka nejdelšího vzestupného intervalu je {maxDelkaIntervalu}.");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Chyba: Zadávejte pouze celá čísla oddělená čárkou.");
+                }
+            }
+        }
 
-                        aktualniInterval = 1;
-                    }
+        static int GetMaxIncreasingSequenceLength(int[] cisla)
+        {
+            int maxDelka = 0;
+            int aktualniDelka = 1;
 
-                    predesleCislo = cislo;
+            for (int i = 1; i < cisla.Length; i++)
+            {
+                if (cisla[i] > cisla[i - 1])
+                {
+                    aktualniDelka++;
+                    maxDelka = Math.Max(maxDelka, aktualniDelka);
                 }
                 else
                 {
-                    Console.WriteLine("Nezadali jste platné číslo. Zadejte sekvenci čísel znovu.");
-                    Main(args);
+                    aktualniDelka = 1;
                 }
             }
 
-            if (aktualniInterval > maxInterval)
-            {
-                maxInterval = aktualniInterval;
-            }
-
-            Console.WriteLine($"Nejmenší číslo je {minCislo}.");
-            Console.WriteLine($"Největší číslo je {maxCislo}.");
-            Console.WriteLine($"Délka nejdelšího vzestupného intervalu je {maxCislo}.");
+            return maxDelka;
         }
     }
 }
